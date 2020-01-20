@@ -1,0 +1,15 @@
+.indicator-container {
+    z-index: 15;
+    margin-left: 5%;
+    position: fixed;
+    height: 150vh;
+    width: 95%;
+}
+
+.line {
+    position: fixed;
+    height: 100%;
+    width: 1.7%;
+    background-color: whitesmoke;
+    margin-left: 15px;
+}

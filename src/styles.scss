@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    height: 100%;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0px;
+}
+
+.sub-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.zIndexFront {
+    z-index: 30;
+}
+
+.bkg-grey {
+    background-color: rgb(43, 43, 43);
+}
+
+.bkg-blue {
+    background-color: rgb(173, 191, 224);
+}
+
+.bkg-red {
+    background-color: #d3cac1;
+}
+
+.bkg-green {
+    background-color: rgb(213, 238, 211);
+}
+
+.container-center {
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+
+.pano {
+    height: 100%;
+    width: 100%;
+    background-image: url('../../assets/home_panorama1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 0;
+}
+
+.title {
+    color: white;
+    font-size: 3.5em;
+    font-family: 'Lexend Deca', sans-serif;
+    text-shadow: 2px 2px 6px #313131;
+}
+
+.squarre {
+    display: inline-block;
+    margin: 15px;
+    margin-left: 30px;
+    padding: 35px;
+    width: 45%;
+    border:rgba($color: (#fff), $alpha: 0.8);
+    border-style: solid;
+    border-width: 10px;
+}
+  
