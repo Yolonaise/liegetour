@@ -13,7 +13,7 @@ export class AppComponent extends ScrollListener  {
   offset: number;
 
   constructor (private element: ElementRef) {
-    super(element);
+    super();
     this.offset = element.nativeElement.parentNode.offsetHeight;
     this.start = this.offset;
   }
@@ -26,11 +26,9 @@ export class AppComponent extends ScrollListener  {
     super.ngOnDestroy();
   }
 
-  OnScroll(event: Event, element: ElementRef<any>): void {
-    const scrollPosition = window.pageYOffset;
-
+  OnScroll(scrollPosition: number): void {
     if(scrollPosition < (this.start)) {
-      this.offset = this.start - (scrollPosition * 1.15);
+      this.offset = this.start - scrollPosition * 1.7;
     }
   }
 }

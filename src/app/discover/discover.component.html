@@ -1,7 +1,8 @@
 <div class="sub-container bkg-grey">
     <div class="w3-display-container">
-        <div class="w3-display-topleft disco-title-container">
-            <p class="disco-title" [@titleAnim]="titleShow ? 'showed' : 'hidden'"> <b>Discover works!</b></p>
+        <div class="w3-display-topleft disco-title-container" >
+            <p class="disco-title" [@titleAnim]="titleShow ? 'showed' : 'hidden'" #discoTitle><i>Discover</i></p>
+            <p class="disco-title-2" [@titleAnim]="titleShow ? 'showed' : 'hidden'" ><b>Liège</b></p>
         </div>
         <div class="w3-display-topleft bkg-grey disco-title-mask">
         </div>

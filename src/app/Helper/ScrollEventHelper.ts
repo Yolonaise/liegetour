@@ -1,11 +1,17 @@
 import { OnInit, ElementRef, OnDestroy } from '@angular/core';
+import Constants from '../service/constants';
 
 export abstract class ScrollListener implements OnInit, OnDestroy{
-
-    constructor(protected el: ElementRef) { }
+    private oldScrollPos: number;
+    constructor() { }
 
     ngOnInit() {
-        window.addEventListener('scroll', this.scroll, true); //third parameter
+        this.oldScrollPos = 0;
+
+        Constants.TITLE_TOP_TRIGGER = window.innerHeight;
+        Constants.TITLE_BOTTOM_TRIGGER = 0; 
+        
+        window.addEventListener('scroll', this.scroll, true);
     }
     
     ngOnDestroy() {
@@ -13,8 +19,9 @@ export abstract class ScrollListener implements OnInit, OnDestroy{
     }
 
     private scroll = (event: Event): void => {
-        this.OnScroll(event, this.el);
+        this.OnScroll(window.pageYOffset, window.pageYOffset > this.oldScrollPos);
+        this.oldScrollPos = window.pageYOffset;
     }
 
-    abstract OnScroll(event: Event, element: ElementRef): void;
+    abstract OnScroll(scrollPosition: number, down: boolean): void;
 }

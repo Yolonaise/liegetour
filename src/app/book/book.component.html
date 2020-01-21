@@ -1,3 +1,10 @@
-<div class="sub-container bkg-blue">
-    <p>Book works!</p>
+<div class="sub-container bkg-grey">
+    <div class="w3-display-container">
+        <div class="w3-display-topleft book-title-container">
+            <p class="book-title" [@titleAnim2]="titleShow ? 'showed' : 'hidden'" #bookTitle> <i>Booking</i></p>
+            <p class="book-title-2" [@titleAnim2]="titleShow ? 'showed' : 'hidden'" #bookTitle> <b>Time</b></p>
+        </div>
+        <div class="w3-display-topleft bkg-grey book-title-mask">
+        </div>
+    </div>
 </div>

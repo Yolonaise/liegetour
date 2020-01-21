@@ -1,6 +1,7 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ScrollListener } from '../Helper/ScrollEventHelper';
 import { trigger, transition, style, animate, state} from '@angular/animations';
+import Constants from '../service/constants';
 
 @Component({
   selector: 'app-team',
@@ -27,9 +28,10 @@ import { trigger, transition, style, animate, state} from '@angular/animations';
 })
 export class TeamComponent extends ScrollListener {
   titleShow: boolean = false;
+  @ViewChild('teamTitle', {static: true}) private teamTitle: ElementRef;
 
   constructor(protected element: ElementRef) {
-    super(element)
+    super()
    }
 
   ngOnInit() {
@@ -40,14 +42,12 @@ export class TeamComponent extends ScrollListener {
     super.ngOnDestroy();
   }
 
-  OnScroll(event: Event, element: ElementRef): void {
-    const componentPosition = this.element.nativeElement.parentNode.offsetHeight;
-    const scrollPosition = window.pageYOffset;
+  OnScroll(scrollPosition: number): void {
+    const pos = this.teamTitle.nativeElement.getBoundingClientRect().bottom;
 
-    if(scrollPosition >  componentPosition - componentPosition * 0.2) {
+    if(pos < Constants.TITLE_TOP_TRIGGER && pos > Constants.TITLE_BOTTOM_TRIGGER){
       this.titleShow = true;
-    }
-    else {
+    } else {
       this.titleShow = false;
     }
   }

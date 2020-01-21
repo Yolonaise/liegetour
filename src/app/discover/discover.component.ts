@@ -1,6 +1,7 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ScrollListener } from '../Helper/ScrollEventHelper';
 import { trigger, transition, style, animate, state} from '@angular/animations';
+import Constants from '../service/constants';
 
 @Component({
   selector: 'app-discover',
@@ -27,8 +28,10 @@ import { trigger, transition, style, animate, state} from '@angular/animations';
 })
 export class DiscoverComponent extends ScrollListener {
   titleShow: boolean = false;
+  @ViewChild('discoTitle', {static: true}) private discoTitle: ElementRef;
+
   constructor(protected element: ElementRef) {
-    super(element);
+    super();
    }
 
   ngOnInit() {
@@ -39,13 +42,12 @@ export class DiscoverComponent extends ScrollListener {
     super.ngOnDestroy();
   }
 
-  OnScroll(event: Event, element: ElementRef): void { 
-    const componentPosition = element.nativeElement.parentNode.offsetHeight;
-    const scrollPosition = window.pageYOffset;
-    if(scrollPosition >  componentPosition - componentPosition * 0.2) {
+  OnScroll(scrollPosition: number, down: true): void {
+    const pos = this.discoTitle.nativeElement.getBoundingClientRect().bottom;
+
+    if(pos < Constants.TITLE_TOP_TRIGGER && pos > Constants.TITLE_BOTTOM_TRIGGER ){
       this.titleShow = true;
-    }
-    else {
+    } else {
       this.titleShow = false;
     }
   }
