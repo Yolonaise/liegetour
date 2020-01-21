@@ -1,20 +1,20 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ScrollListener } from '../Helper/ScrollEventHelper';
-import { trigger, transition, style, animate, state} from '@angular/animations';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 import Constants from '../service/constants';
 
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.scss'],
-  animations:[
+  animations: [
     trigger('titleAnim2', [
       state('showed', style({
         transform: 'translate(0)',
         opacity: 1
       })),
       state('hidden', style({
-        transform: 'translate(-100%)',
+        transform: 'translate(100%)',
         opacity: 0
       })),
       transition('showed => hidden', [
@@ -28,24 +28,24 @@ import Constants from '../service/constants';
 })
 export class TeamComponent extends ScrollListener {
   titleShow: boolean = false;
-  @ViewChild('teamTitle', {static: true}) private teamTitle: ElementRef;
+  @ViewChild('teamTitle', { static: true }) private teamTitle: ElementRef;
 
   constructor(protected element: ElementRef) {
     super()
-   }
+  }
 
   ngOnInit() {
     super.ngOnInit();
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     super.ngOnDestroy();
   }
 
   OnScroll(scrollPosition: number): void {
     const pos = this.teamTitle.nativeElement.getBoundingClientRect().bottom;
 
-    if(pos < Constants.TITLE_TOP_TRIGGER && pos > Constants.TITLE_BOTTOM_TRIGGER){
+    if (pos < Constants.TITLE_TOP_TRIGGER && pos > Constants.TITLE_BOTTOM_TRIGGER) {
       this.titleShow = true;
     } else {
       this.titleShow = false;

@@ -1,6 +1,7 @@
 <div class="sub-container bkg-grey">
     <div class="pano" [style.transform]="'translateY(' + offset + 'px)'" [style.opacity]="opacity"></div>
-    <div class="w3-display-container container-center title-container w3-display-middle child-centered" [style.opacity]="opacity">
+    <div class="w3-display-container container-center title-container w3-display-middle child-centered"
+        [style.opacity]="opacity">
         <div class="squarre" [style.transform]="'translateY(' + offset * 1.7 + 'px)'" @squareItemAnimation>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 640" width="25vh" height="25vh">
@@ -20,73 +21,78 @@
                     <g>
                         <g>
                             <g>
-                                <use xlink:href="#bOA0cQDR4" opacity="1" fill-opacity="0" stroke="#fff"
-                                    stroke-width="2" stroke-opacity="1" />
+                                <use xlink:href="#bOA0cQDR4" opacity="1" fill-opacity="0" stroke="#fff" stroke-width="2"
+                                    stroke-opacity="1" />
                             </g>
                         </g>
                         <g>
                             <g>
-                        <use xlink:href="#avwTnKI4A" opacity="1" fill-opacity="0" stroke="#fff"
-                                stroke-width="2" stroke-opacity="1" />
+                                <use xlink:href="#avwTnKI4A" opacity="1" fill-opacity="0" stroke="#fff" stroke-width="2"
+                                    stroke-opacity="1" />
+                            </g>
                         </g>
-                    </g>
-                    <g>
                         <g>
-                            <use xlink:href="#a19Ygbdnbm" opacity="1" fill-opacity="0" stroke="#fff"
-                                stroke-width="30" stroke-opacity="1" />
+                            <g>
+                                <use xlink:href="#a19Ygbdnbm" opacity="1" fill-opacity="0" stroke="#fff"
+                                    stroke-width="30" stroke-opacity="1" />
+                            </g>
                         </g>
-                    </g>
-                    <g>
                         <g>
-                            <use xlink:href="#dkdMNKY3" opacity="1" fill-opacity="0" stroke="#fff"
-                                stroke-width="30" stroke-opacity="1" />
+                            <g>
+                                <use xlink:href="#dkdMNKY3" opacity="1" fill-opacity="0" stroke="#fff" stroke-width="30"
+                                    stroke-opacity="1" />
+                            </g>
                         </g>
-                    </g>
-                    <g>
                         <g>
-                            <use xlink:href="#bnKaPLJVh" opacity="1" fill-opacity="0" stroke="#fff"
-                                stroke-width="30" stroke-opacity="1" />
+                            <g>
+                                <use xlink:href="#bnKaPLJVh" opacity="1" fill-opacity="0" stroke="#fff"
+                                    stroke-width="30" stroke-opacity="1" />
+                            </g>
                         </g>
-                    </g>
-                    <g>
                         <g>
-                            <use xlink:href="#bl4MlPuMB" opacity="1" fill-opacity="0" stroke="#fff"
-                                stroke-width="30" stroke-opacity="1" />
+                            <g>
+                                <use xlink:href="#bl4MlPuMB" opacity="1" fill-opacity="0" stroke="#fff"
+                                    stroke-width="30" stroke-opacity="1" />
+                            </g>
                         </g>
-                    </g>
-                    <g>
                         <g>
-                            <use xlink:href="#c2POVI8tHs" opacity="1" fill-opacity="0" stroke="#fff"
-                                stroke-width="60" stroke-opacity="0.7" />
+                            <g>
+                                <use xlink:href="#c2POVI8tHs" opacity="1" fill-opacity="0" stroke="#fff"
+                                    stroke-width="60" stroke-opacity="0.7" />
+                            </g>
                         </g>
-                    </g>
-                    <g>
                         <g>
-                            <use xlink:href="#c5Wmmz0BR" opacity="1" fill-opacity="0" stroke="#fff"
-                                stroke-width="60" stroke-opacity="0.7" />
+                            <g>
+                                <use xlink:href="#c5Wmmz0BR" opacity="1" fill-opacity="0" stroke="#fff"
+                                    stroke-width="60" stroke-opacity="0.7" />
+                            </g>
                         </g>
-                    </g>
-                    <g>
                         <g>
-                            <use xlink:href="#b2430WQ9J" opacity="1" fill-opacity="0" stroke="#fff"
-                                stroke-width="60" stroke-opacity="1" />
+                            <g>
+                                <use xlink:href="#b2430WQ9J" opacity="1" fill-opacity="0" stroke="#fff"
+                                    stroke-width="60" stroke-opacity="1" />
+                            </g>
                         </g>
-                    </g>
-                    <g>
                         <g>
-                            <use xlink:href="#euzGLzATe" opacity="1" fill-opacity="0" stroke="#fff"
-                                stroke-width="60" stroke-opacity="1" />
+                            <g>
+                                <use xlink:href="#euzGLzATe" opacity="1" fill-opacity="0" stroke="#fff"
+                                    stroke-width="60" stroke-opacity="1" />
+                            </g>
                         </g>
                     </g>
                 </g>
-            </g>
-        </svg>
+            </svg>
+        </div>
+        <div class="title" [style.transform]="'translateY(' + offset * 1.7 + 'px)'" @titleItemAnimation>
+            <p>
+                <i>Discover </i>
+                <b>Liege </b>
+                <u>With nice buddies</u>
+            </p>
+        </div>
     </div>
-    <div class="title" [style.transform]="'translateY(' + offset * 1.7 + 'px)'" @titleItemAnimation>
-        <p>
-            <i>Discover </i>
-            <b>Liege </b>
-            <u>With nice buddies</u>
-        </p>
+    <div class="w3-display-bottomleft line-container">
+        <!-- [style.transform]="'translateY(' + offset * 1.7 + 'px)'" -->
+        <div class="line-home bkg-green"></div>
     </div>
 </div>

@@ -1,10 +1,15 @@
 <div class="sub-container bkg-grey">
     <div class="w3-display-container">
-        <div class="w3-display-topleft team-title-container">
+        <div class="w3-display-topright team-title-container">
             <p class="team-title" [@titleAnim2]="titleShow ? 'showed' : 'hidden'" #teamTitle> <i>The</i></p>
             <p class="team-title-2" [@titleAnim2]="titleShow ? 'showed' : 'hidden'" #teamTitle> <b>Buddies</b></p>
         </div>
-        <div class="w3-display-topleft bkg-grey team-title-mask">
+        <div class="w3-display-topright bkg-grey team-title-mask">
+            <div class="w3-display-topleft bkg-grey disco-title-mask">
+                <!-- [style.transform]="'translateY(' + offset * 1.7 + 'px)'" -->
+                <div class="line bkg-red"></div>
+            </div>
         </div>
     </div>
+    <div class="w3-display-bottommiddle separator"></div>
 </div>

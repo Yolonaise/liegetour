@@ -1,10 +1,13 @@
 <div class="sub-container bkg-grey">
     <div class="w3-display-container">
-        <div class="w3-display-topleft disco-title-container" >
+        <div class="w3-display-topleft disco-title-container">
             <p class="disco-title" [@titleAnim]="titleShow ? 'showed' : 'hidden'" #discoTitle><i>Discover</i></p>
-            <p class="disco-title-2" [@titleAnim]="titleShow ? 'showed' : 'hidden'" ><b>Liège</b></p>
+            <p class="disco-title-2" [@titleAnim]="titleShow ? 'showed' : 'hidden'"><b>Liège</b></p>
         </div>
         <div class="w3-display-topleft bkg-grey disco-title-mask">
+            <!-- [style.transform]="'translateY(' + offset * 1.7 + 'px)'" -->
+            <div class="line bkg-green"></div>
         </div>
     </div>
+    <div class="w3-display-bottommiddle separator"></div>
 </div>

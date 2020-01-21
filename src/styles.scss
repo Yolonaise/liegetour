@@ -32,17 +32,29 @@ p {
 }
 
 .bkg-blue {
-    background-color: rgb(173, 191, 224);
-}
-
-.bkg-red {
-    background-color: #d3cac1;
+    background-color: rgb(96, 138, 216);
 }
 
 .bkg-green {
-    background-color: rgb(213, 238, 211);
+    background-color: rgb(105, 230, 116);
+}
+
+.bkg-red {
+    background-color: rgb(228, 139, 98);
 }
 
 .container-center {
     text-align: center;
+}
+
+.separator {
+    width: 45vw;
+    height: 0.2em;
+    background-color: white;
+}
+
+.line {
+    height: 90vh;
+    width: 0.2em;
+    margin-left: 100%;
 }
