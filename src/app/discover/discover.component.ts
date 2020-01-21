@@ -1,6 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ScrollListener } from '../Helper/ScrollEventHelper';
 import { Constants, Animations } from '../service/constants';
+import { MenuService } from '../menu/menu.service';
+import { IMenu } from '../interface/menu.interface';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-discover',
@@ -10,20 +13,20 @@ import { Constants, Animations } from '../service/constants';
     Animations.ANIM_LEFT
   ]
 })
-export class DiscoverComponent extends ScrollListener {
+export class DiscoverComponent extends ScrollListener implements IMenu {
+  name: string = "Discover";
+  htmlId: string = uuid.v4();
+  isOnScreen: boolean = false;
   titleShow: boolean = false;
   @ViewChild('discoTitle', { static: true }) private discoTitle: ElementRef;
 
-  constructor(protected element: ElementRef) {
+  constructor(private menu: MenuService) {
     super();
   }
 
   ngOnInit() {
     super.ngOnInit();
-  }
-
-  ngOnDestroy(): void {
-    super.ngOnDestroy();
+    this.menu.addMenu(this);
   }
 
   OnScroll(scrollPosition: number, down: true): void {
@@ -34,5 +37,11 @@ export class DiscoverComponent extends ScrollListener {
     } else {
       this.titleShow = false;
     }
+
+    this.isOnScreenById(this.htmlId, (v: string) => {
+      if (v && !this.isOnScreen) {
+        this.menu.notifyFeatureOnScreen(this);
+      }
+    });
   }
 }

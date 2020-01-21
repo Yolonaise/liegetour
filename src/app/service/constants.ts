@@ -41,6 +41,16 @@ export class Animations {
                 animate('0.5s ease-in-out')
             ]),
         ]);
+    static MENU_LINE =
+        trigger('MenuLine', [
+            transition(':enter', [
+                style({ opacity: 0}),
+                animate('0.35s ease-in-out', style({opacity: 1}))
+            ]),
+            transition(':leave', [style({ opacity: 1}),
+                animate('0.5s ease-in-out', style({opacity: 0}))
+            ]),
+        ]);
 }
 
 export default class Dictionnary {

@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { TeamComponent } from './team/team.component';
 import { BookComponent } from './book/book.component';
+import { MenuComponent } from './menu/menu.component';
+import { MenuService } from './menu/menu.service';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,14 @@ import { BookComponent } from './book/book.component';
     HomeComponent,
     DiscoverComponent,
     TeamComponent,
-    BookComponent
+    BookComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

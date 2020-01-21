@@ -1,0 +1,21 @@
+ul {
+    list-style-type: none;
+    margin-left: 4px;
+    padding: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    opacity : 0.5;
+    display: block;
+    padding: 5px 15px;
+    transition:all 0.3s ease;
+}
+
+li a:hover {
+    color: #000;
+    opacity: 1;
+}

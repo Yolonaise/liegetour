@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ScrollListener } from '../Helper/ScrollEventHelper';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Constants, Animations } from '../service/constants';
+import { IMenu } from '../interface/menu.interface';
+import { MenuService } from '../menu/menu.service';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-book',
@@ -11,20 +13,21 @@ import { Constants, Animations } from '../service/constants';
     Animations.ANIM_LEFT
   ]
 })
-export class BookComponent extends ScrollListener {
+export class BookComponent extends ScrollListener implements IMenu {
+  name: string = "Book";
+  htmlId: string = uuid.v4();
+  isOnScreen: boolean = false;
+
   titleShow: boolean = false;
   @ViewChild('bookTitle', { static: true }) private bookTitle: ElementRef;
 
-  constructor() {
+  constructor(private menu: MenuService) {
     super();
   }
 
   ngOnInit() {
     super.ngOnInit();
-  }
-
-  ngOnDestroy(): void {
-    super.ngOnDestroy();
+    this.menu.addMenu(this);
   }
 
   OnScroll(_: number): void {
@@ -35,5 +38,11 @@ export class BookComponent extends ScrollListener {
     } else {
       this.titleShow = false;
     }
+
+    this.isOnScreenById(this.htmlId, (v: string) => {
+      if (v && !this.isOnScreen) {
+        this.menu.notifyFeatureOnScreen(this);
+      }
+    });
   }
 }

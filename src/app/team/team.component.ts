@@ -1,7 +1,9 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ScrollListener } from '../Helper/ScrollEventHelper';
-import { trigger, transition, style, animate, state } from '@angular/animations';
 import { Constants, Animations } from '../service/constants';
+import { IMenu } from '../interface/menu.interface';
+import { MenuService } from '../menu/menu.service';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-team',
@@ -11,16 +13,21 @@ import { Constants, Animations } from '../service/constants';
     Animations.ANIM_RIGHT
   ]
 })
-export class TeamComponent extends ScrollListener {
+export class TeamComponent extends ScrollListener implements IMenu {
+  name: string = "Team";
+  htmlId: string = uuid.v4();
+  isOnScreen: boolean = false;
+
   titleShow: boolean = false;
   @ViewChild('teamTitle', { static: true }) private teamTitle: ElementRef;
 
-  constructor(protected element: ElementRef) {
+  constructor(private menu: MenuService) {
     super();
   }
 
   ngOnInit() {
     super.ngOnInit();
+    this.menu.addMenu(this);
   }
 
   ngOnDestroy() {
@@ -35,5 +42,11 @@ export class TeamComponent extends ScrollListener {
     } else {
       this.titleShow = false;
     }
+
+    this.isOnScreenById(this.htmlId, (v: string) => {
+      if (v && !this.isOnScreen) {
+        this.menu.notifyFeatureOnScreen(this);
+      }
+    });
   }
 }

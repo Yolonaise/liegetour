@@ -1,6 +1,11 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { ScrollListener } from '../Helper/ScrollEventHelper';
-import { animate, trigger, style, group, query, transition, state, stagger } from '@angular/animations'
+import { animate, trigger, style, transition } from '@angular/animations'
+import { IMenu } from '../interface/menu.interface';
+import { Constants } from '../service/constants';
+import { MenuService } from '../menu/menu.service';
+import * as uuid from 'uuid';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,25 +25,32 @@ import { animate, trigger, style, group, query, transition, state, stagger } fro
     ])]
 })
 
-export class HomeComponent extends ScrollListener {
+export class HomeComponent extends ScrollListener implements IMenu{
+  name: string = "Home";
+  htmlId: string = uuid.v4();
+  isOnScreen: boolean = false;
+
   opacity: number = 1;
   offset: number = 0;
-  constructor(protected element: ElementRef) {
+
+  constructor(private menu: MenuService) {
     super();
   }
 
   ngOnInit() {
-    super.ngOnInit();
-  }
-
-  ngOnDestroy() {
-    super.ngOnDestroy();
+      super.ngOnInit();
+    this.menu.addMenu(this);
   }
 
   OnScroll(scrollPosition: number): void {
-    const componentPosition = this.element.nativeElement.parentNode.offsetHeight;
-    const diff = (scrollPosition) / (1.5 * componentPosition - scrollPosition)
+    const diff = (scrollPosition) / (1.5 * Constants.TITLE_TOP_TRIGGER - scrollPosition)
     this.opacity = 1 - diff;
     this.offset = scrollPosition / 7;
+
+    this.isOnScreenById(this.htmlId, (v: string) => {
+      if (v && !this.isOnScreen) {
+        this.menu.notifyFeatureOnScreen(this);
+      }
+    });
   }
 }
