@@ -1,29 +1,13 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ScrollListener } from '../Helper/ScrollEventHelper';
-import { trigger, transition, style, animate, state } from '@angular/animations';
-import Constants from '../service/constants';
+import { Constants, Animations } from '../service/constants';
 
 @Component({
   selector: 'app-discover',
   templateUrl: './discover.component.html',
   styleUrls: ['./discover.component.scss'],
   animations: [
-    trigger('titleAnim', [
-      state('showed', style({
-        transform: 'translate(0)',
-        opacity: 1
-      })),
-      state('hidden', style({
-        transform: 'translate(-100%)',
-        opacity: 0
-      })),
-      transition('showed => hidden', [
-        animate('0.35s ease-out')
-      ]),
-      transition('hidden => showed', [
-        animate('0.35s ease-out')
-      ]),
-    ])
+    Animations.ANIM_LEFT
   ]
 })
 export class DiscoverComponent extends ScrollListener {

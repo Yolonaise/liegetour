@@ -1,8 +1,8 @@
 <div class="sub-container bkg-grey">
     <div class="w3-display-container">
         <div class="w3-display-topleft book-title-container">
-            <p class="book-title" [@titleAnim2]="titleShow ? 'showed' : 'hidden'" #bookTitle> <i>Booking</i></p>
-            <p class="book-title-2" [@titleAnim2]="titleShow ? 'showed' : 'hidden'" #bookTitle> <b>Time</b></p>
+            <p class="book-title" [@AnimLeft]="titleShow ? 'showed' : 'hidden'" #bookTitle> <i>Booking</i></p>
+            <p class="book-title-2" [@AnimLeft]="titleShow ? 'showed' : 'hidden'" #bookTitle> <b>Time</b></p>
         </div>
         <div class="w3-display-topleft bkg-grey book-title-mask">
             <!-- [style.transform]="'translateY(' + offset * 1.7 + 'px)'" -->

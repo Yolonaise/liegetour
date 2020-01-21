@@ -1,29 +1,14 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ScrollListener } from '../Helper/ScrollEventHelper';
 import { trigger, transition, style, animate, state } from '@angular/animations';
-import Constants from '../service/constants';
+import { Constants, Animations } from '../service/constants';
 
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.scss'],
   animations: [
-    trigger('titleAnim2', [
-      state('showed', style({
-        transform: 'translate(0)',
-        opacity: 1
-      })),
-      state('hidden', style({
-        transform: 'translate(100%)',
-        opacity: 0
-      })),
-      transition('showed => hidden', [
-        animate('0.35s')
-      ]),
-      transition('hidden => showed', [
-        animate('0.35s')
-      ]),
-    ])
+    Animations.ANIM_RIGHT
   ]
 })
 export class TeamComponent extends ScrollListener {
@@ -31,7 +16,7 @@ export class TeamComponent extends ScrollListener {
   @ViewChild('teamTitle', { static: true }) private teamTitle: ElementRef;
 
   constructor(protected element: ElementRef) {
-    super()
+    super();
   }
 
   ngOnInit() {
