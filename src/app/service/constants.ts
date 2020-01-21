@@ -17,10 +17,10 @@ export class Animations {
                 opacity: 0
             })),
             transition('showed => hidden', [
-                animate('0.35s ease-out')
+                animate('0.35s ease-in-out')
             ]),
             transition('hidden => showed', [
-                animate('0.35s ease-out')
+                animate('0.5s ease-in-out')
             ]),
         ]);
 
@@ -35,10 +35,10 @@ export class Animations {
                 opacity: 0
             })),
             transition('showed => hidden', [
-                animate('0.35s ease-out')
+                animate('0.35s ease-in-out')
             ]),
             transition('hidden => showed', [
-                animate('0.35s ease-out')
+                animate('0.5s ease-in-out')
             ]),
         ]);
 }

@@ -8,16 +8,16 @@ import { animate, trigger, style, group, query, transition, state, stagger } fro
   animations: [
     trigger('squareItemAnimation', [
       transition(':enter', [
-        style({transform: 'translateX(-100%)', opacity: 0}),
-        animate('0.5s ease-out', style({transform: 'translateX(0%)', opacity: 1}))
+        style({ transform: 'translateX(-100%)', opacity: 0 }),
+        animate('0.7s ease-in-out', style({ transform: 'translateX(0%)', opacity: 1 }))
       ]),
-  ]),
-  trigger('titleItemAnimation', [
-    transition(':enter', [
-      style({transform: 'translateX(-100%)', opacity: 0}),
-      animate('0.7s 0.3s ease-out')
     ]),
-  ])]
+    trigger('titleItemAnimation', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)', opacity: 0 }),
+        animate('0.7s ease-in-out')
+      ]),
+    ])]
 })
 
 export class HomeComponent extends ScrollListener {
@@ -37,7 +37,7 @@ export class HomeComponent extends ScrollListener {
 
   OnScroll(scrollPosition: number): void {
     const componentPosition = this.element.nativeElement.parentNode.offsetHeight;
-    const diff = (scrollPosition) /(1.5 * componentPosition - scrollPosition)
+    const diff = (scrollPosition) / (1.5 * componentPosition - scrollPosition)
     this.opacity = 1 - diff;
     this.offset = scrollPosition / 7;
   }
